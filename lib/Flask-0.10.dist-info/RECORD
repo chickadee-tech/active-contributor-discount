@@ -83,7 +83,8 @@ Flask-0.10.dist-info/METADATA,sha256=pqbqQzdvCFKHyFRIFyxq9hyctjcYvH9MGStkHlbfBqk
 Flask-0.10.dist-info/metadata.json,sha256=nWJBE8_HRpsHM1zLFJsfFrxuzec2njoS7UDgZMpCiFE,1011
 Flask-0.10.dist-info/RECORD,,
 Flask-0.10.dist-info/top_level.txt,sha256=dvi65F6AeGWVU0TBpYiC04yM60-FX1gJFkK31IKQr5c,6
-Flask-0.10.dist-info/WHEEL,sha256=54bVun1KfEBTJ68SHUmbxNPj80VxlQ0sHi4gZdGZXEY,92
+Flask-0.10.dist-info/WHEEL,sha256=i0jryiEgCwcxLeQpxtzZOiOdTe1nTXDkQEkJpgdcuVo,93
+Flask-0.10.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
 flask/config.pyc,,
 flask/testsuite/deprecations.pyc,,
 flask/testsuite/test_apps/flaskext/oldext_package/__init__.pyc,,

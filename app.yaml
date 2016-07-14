@@ -10,6 +10,10 @@ threadsafe: yes
 # Handlers define how to route requests to your application.
 handlers:
 
+- url: /js\.cookie\.js
+  static_files: js.cookie.js
+  upload: js\.cookie\.js
+
 # App Engine serves and caches static files contained in the listed directories
 # (and subdirectories). Uncomment and set the directory as needed.
 #- url: /client
@@ -21,6 +25,9 @@ handlers:
 - url: .*  # This regex directs all routes to main.app
   script: main.app
 
+env_variables:
+  GAE_USE_SOCKETS_HTTPLIB : 'true'
+
 # Third party libraries that are included in the App Engine SDK must be listed
 # here if you want to use them.  See
 # https://developers.google.com/appengine/docs/python/tools/libraries27 for
@@ -28,6 +35,10 @@ handlers:
 # of the App Engine SDK don't need to be listed here, instead add them to your
 # project directory, either as a git submodule or as a plain subdirectory.
 # TODO: List any other App Engine SDK libs you may need here.
-#libraries:
-#- name: jinja2
-#  version: latest
+libraries:
+- name: pycrypto
+  version: latest
+- name: ssl
+  version: latest
+- name: jinja2
+  version: latest

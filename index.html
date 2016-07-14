@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>Chickadee Tech Active Contributor Discount</title>
+    <script src="https://npmcdn.com/axios/dist/axios.min.js"></script>
+    <script src="js.cookie.js"></script>
+  </head>
+  <body>
+    <div>
+      <h1>Active Contributor Discount</h1>
+      <div id="username-input">
+        <form>
+          <input type="text" name="user_id" placeholder="GitHub Username" id="user_id"/>
+          <input type="submit" value="Submit"/>
+        </form>
+      </div>
+      <div id="loading">
+        Loading...
+      </div>
+      <div id="discount">
+        <div id="discount_percentage"></div>
+        <div id="discount_code"></div>
+        <div id="thanks"></div>
+      </div>
+    </div>
+    <div>
+      Submit your username to determine the discount amount or <a href="/login">login</a> immediately to get your code.
+    </div>
+    <script type="text/javascript">
+      var s = function(e) {
+        var t = document.querySelector("#user_id");
+        document.querySelector("#loading").style.display = "";
+        document.querySelector("#discount").style.display = "none";
+        document.querySelector("#username-input").style.display = "none";
+        axios.get('/api/discount', {"params": {'user_id': t.value}})
+            .then(function (response) {
+              console.log(response);
+              document.querySelector("#loading").style.display = "none";
+              document.querySelector("#discount").style.display = "";
+              document.querySelector("#username-input").style.display = "none";
+              document.querySelector("#thanks").innerHTML = response.data.thanks;
+              document.querySelector("#discount_code").innerHTML = response.data.discount_code;
+              document.querySelector("#discount_percentage").innerHTML = response.data.discount_percentage;
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        e.preventDefault();
+        return false;
+      };
+      console.log(Cookies.get("loggedIn"));
+      document.querySelector("form").addEventListener("submit", s);
+      document.querySelector("#loading").style.display = "none";
+      document.querySelector("#discount").style.display = "none";
+    </script>
+  </body>
+</html>
